@@ -17,7 +17,8 @@ function Contact() {
     console.log(myObj);
     try {
       const res = await fetch(
-        "http://localhost:5000/api/v3.2/contact/sendmessage",
+        // "http://localhost:5000/api/v3.2/contact/sendmessage",
+         "https://rudraclasses.onrender.com/api/v3.2/contact/sendmessage",
         {
           method: "POST",
           headers: {
