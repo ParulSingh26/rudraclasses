@@ -12,7 +12,6 @@ frontend/build/
 backend/build/
 
 # Environment files
-.env
 frontend/.env
 backend/.env
 
