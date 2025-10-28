@@ -18,9 +18,13 @@ router.post("/sendmessage", async (req, res) => {
       },
     });
 
+        console.log("Trying to send email to:", process.env.EMAIL_USER);
+
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: req.body.email,
+      // from: process.env.EMAIL_USER,
+      // to: req.body.email,
+      from: req.body.email,
+      to: process.env.EMAIL_USER,
       subject: req.body.subject,
       text: req.body.message,
 //       html: `<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -491,7 +495,9 @@ router.post("/sendmessage", async (req, res) => {
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         return console.log(error);
-      }
+      }else {
+    console.log("✅ Email sent:", info.response);
+  }
       console.log("Message sent: " + info);
     });
 
